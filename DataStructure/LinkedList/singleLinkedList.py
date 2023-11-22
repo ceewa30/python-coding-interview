@@ -13,5 +13,5 @@ class LinkedList:
         self.length = 1
 
 new_linked_list = LinkedList(10)
-print(new_linked_list)
+print(new_linked_list.head.value)
 
