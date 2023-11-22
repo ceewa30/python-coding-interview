@@ -54,12 +54,26 @@ class LinkedList:
             self.head = new_node
         self.length += 1
 
+# Inserting the value at specific location to the Linked List
+    def insert(self, index, value):
+        new_node = Node(value)
+        temp_node = self.head
+        for _ in range(index-1):
+            temp_node = temp_node.next
+        new_node.next = temp_node.next
+        temp_node.next = new_node
+        self.length += 1
+
+
+
 
 
 
 new_linked_list = LinkedList()
 new_linked_list.append(10)
 new_linked_list.append(20)
+print(new_linked_list)
+new_linked_list.insert(1, 50)
 print(new_linked_list)
 new_linked_list.prepend(40)
 print(new_linked_list)
