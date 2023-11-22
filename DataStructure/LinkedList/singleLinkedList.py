@@ -21,6 +21,17 @@ class LinkedList:
         self.tail = None
         self.length = 0
 
+# Printing the values in console
+    def __str__(self):
+        temp_node = self.head
+        result = ''
+        while temp_node is not None:
+            result += str(temp_node.value)
+            if temp_node.next is not None:
+                result += ' -> '
+            temp_node = temp_node.next
+        return result
+
 # Insert the value to the last node
     def append(self, value):
         new_node = Node(value)
@@ -33,8 +44,10 @@ class LinkedList:
         self.length += 1
 
 
+
+
 new_linked_list = LinkedList()
 new_linked_list.append(10)
 new_linked_list.append(20)
-print(new_linked_list.length)
+print(new_linked_list)
 
