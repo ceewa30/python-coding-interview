@@ -57,11 +57,15 @@ class LinkedList:
 # Inserting the value at specific location to the Linked List
     def insert(self, index, value):
         new_node = Node(value)
-        temp_node = self.head
-        for _ in range(index-1):
-            temp_node = temp_node.next
-        new_node.next = temp_node.next
-        temp_node.next = new_node
+        if index == 0:
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            temp_node = self.head
+            for _ in range(index-1):
+                temp_node = temp_node.next
+            new_node.next = temp_node.next
+            temp_node.next = new_node
         self.length += 1
 
 
