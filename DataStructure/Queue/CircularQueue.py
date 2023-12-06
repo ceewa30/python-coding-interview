@@ -3,7 +3,7 @@ class CircularQueue:
         self.items = maxSize * [None]
         self.maxSize = maxSize
         self.start = -1
-        self.top = 1
+        self.top = -1
 
     def __str__(self):
         values = [str(x) for x in self.items]
@@ -27,8 +27,11 @@ class CircularQueue:
             return False
 
     def isEmpty(self):
-        pass
+        if self.top == -1:
+            return True
+        else:
+            return False
 
 
 customQueue = CircularQueue(3)
-print(customQueue.isFull())
+print(customQueue.isEmpty())
