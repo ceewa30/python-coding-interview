@@ -9,14 +9,40 @@ class CircularQueue:
         values = [str(x) for x in self.items]
         return ' '.join(values)
         
-    def enqueue(self):
-        pass
+    def enqueue(self, value):
+        if self.isFull():
+            return "The Queue is full"
+        else:
+            if self.top + 1 == self.maxSize:
+                self.top = 0
+            else:
+                self.top += 1
+                if self.start == -1:
+                    self.start = 0
+            self.items[self.top] = value
+            return "The element is inserted at the end of Queue"
 
     def dequeue(self):
-        pass
+        if self.isEmpty():
+            return "There is not any element in ther queue"
+        else:
+            firstElement = self.items[self.start]
+            start = self.start
+            if self.start == self.top:
+                self.start = -1
+                self.top = -1
+            elif self.start + 1 == self.maxSize:
+                self.start = 0
+            else:
+                self.start += 1
+            self.items[start] = None
+            return firstElement
 
     def peek(self):
-        pass
+        if self.isEmpty():
+            return "There is not any element in the Queue"
+        else:
+            return self.items[self.start]
 
     def isFull(self):
         if self.top + 1 == self.start:
@@ -31,7 +57,16 @@ class CircularQueue:
             return True
         else:
             return False
+        
+    def delete(self):
+        self.items = self.maxSize = [None]
+        self.top = -1
+        self.start = -1
 
 
 customQueue = CircularQueue(3)
-print(customQueue.isEmpty())
+customQueue.enqueue(5)
+customQueue.enqueue(3)
+customQueue.enqueue(2)
+print(customQueue)
+print(customQueue.delete())
