@@ -2,21 +2,6 @@
 
 # [2,6,3,9,11]    9   -----> [6, 3 ]
 
-def two_sum(nums, target):
-    nums_dict = {}
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in nums_dict:
-            return [nums_dict[complement], i]
-        nums_dict[num] = 1
-
-
-nums = [2, 7, 11, 15]
-target = 9
-print(two_sum(nums, target))
-
-# Note: The above solution has a time complexity of O(n), where n is the length of the input array.
-
 """
 def two_sum(nums, target): Define a function called two_sum that takes a list of integers nums and an integer target as input.
 
@@ -32,3 +17,18 @@ return [nums_dict[complement], i] If the complement is found in the nums_dict di
 
 nums_dict[num] = i If the complement is not found, add the current number num and its index i to the nums_dict dictionary. This operation has an average-case time complexity of O(1).
 """
+
+def two_sum(nums, target):
+    nums_dict = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in nums_dict:
+            return [nums_dict[complement], i]
+        nums_dict[num] = 1
+
+
+nums = [2, 7, 11, 15]
+target = 9
+print(two_sum(nums, target))
+
+# Note: The above solution has a time complexity of O(n), where n is the length of the input array.
