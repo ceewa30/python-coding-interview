@@ -14,7 +14,7 @@ number = int(input("Enter the three digit number to Armstrong Number or not :"))
 numb = number
 result = 0
 n = len(str(numb))
-for i in range(n):
+for _ in range(n):
     digit = number % 10
     result = result + digit ** n
     number = number // 10

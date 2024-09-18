@@ -5,6 +5,7 @@
 def findmissing(arrnum, n):
     # Calculate the sum of first n natural numbers
     totalNumber = n*(n+1)/2
+    print(totalNumber)
 
     # Calculate the sum of numbers in the array
     sumofarray = sum(arrnum)
@@ -15,7 +16,3 @@ def findmissing(arrnum, n):
     return missing
 
 print(findmissing([1,2,3,4,6], 6))
-
-
-
-
